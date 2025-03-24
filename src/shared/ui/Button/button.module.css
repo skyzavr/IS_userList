@@ -1,0 +1,10 @@
+.wrapper {
+  padding: 10px 30px;
+  border-radius: 4px;
+  background-color: var(--dark-blue);
+  color: var(--white);
+}
+
+.wrapper:disabled {
+  background-color: var(--gray);
+}
