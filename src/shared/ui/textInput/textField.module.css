@@ -1,0 +1,24 @@
+.wrapper {
+  border: 1px solid var(--gray);
+  padding: 10px;
+  border-radius: 4px;
+  color: var(--gray);
+}
+
+.wrapper::placeholder {
+  color: var(--light-gray);
+}
+
+.wrapper,
+.wrapper:focus {
+  transition: 0.3s all ease-in-out;
+}
+
+.wrapper:focus {
+  border: 1px solid var(--blue);
+  color: var(--dark-gray);
+}
+
+.error {
+  border: 1px solid var(--red);
+}
