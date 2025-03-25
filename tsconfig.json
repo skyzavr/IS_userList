@@ -9,6 +9,7 @@
     "paths": {
       "@app/*": ["src/app/*"],
       "@store/*": ["src/app/store/*"],
+      "@layout/*": ["src/layout/*"],
       "@widgets/*": ["src/widgets/*"],
       "@features/*": ["src/features/*"],
       "@entities/*": ["src/entities/*"],
