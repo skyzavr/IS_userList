@@ -1,0 +1,15 @@
+.wrapper {
+  margin-right: 10px;
+}
+
+.infoPanel {
+  margin-bottom: 10px;
+  padding: 10px 20px;
+  border: 1px solid var(--light-blue);
+  width: 300px;
+  line-height: 1.38;
+}
+
+.infoPanel > span:last-child {
+  font-weight: 600;
+}
