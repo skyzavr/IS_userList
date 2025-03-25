@@ -1,0 +1,7 @@
+.wrapper {
+  width: 300px;
+  max-height: 600px;
+  overflow-y: scroll;
+  border: 1px solid var(--light-blue);
+  padding: 10px;
+}
