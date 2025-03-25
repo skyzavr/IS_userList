@@ -14,7 +14,6 @@
   flex-direction: column;
   align-items: flex-start;
   margin: 30px 0 40px;
-  padding-left: 30px;
 }
 
 .userData > div:not(div:last-child) {
@@ -38,6 +37,10 @@
     margin-right: 0;
     margin-bottom: 20px;
   }
+
+  .userData {
+    padding-left: 10px;
+  }
 }
 
 @media (min-width: 840px) {
@@ -50,5 +53,9 @@
   .handleBtns > button:first-child {
     margin-right: 20px;
     margin-bottom: 0;
+  }
+
+  .userData {
+    padding-left: 30px;
   }
 }
