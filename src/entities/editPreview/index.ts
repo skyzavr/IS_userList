@@ -1,1 +1,1 @@
-export { EditPreview } from './ui/editPreview';
+export { EditPreview } from './ui/EditPreview';
