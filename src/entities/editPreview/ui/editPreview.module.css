@@ -1,6 +1,20 @@
 .wrapper {
-  width: 500px;
   border: 1px solid var(--dark-blue);
   border-radius: 4px;
-  padding: 20px;
+  padding: 16px;
+  line-height: 1.38;
+}
+
+@media (min-width: 320px) {
+  .wrapper {
+    width: auto;
+    margin-bottom: 10px;
+  }
+}
+
+@media (min-width: 840px) {
+  .wrapper {
+    width: 500px;
+    margin-bottom: 0;
+  }
 }

@@ -26,3 +26,29 @@
   margin-bottom: 10px;
   width: 120px;
 }
+
+@media (min-width: 320px) {
+  .handleBtns {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .handleBtns > button:first-child {
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+}
+
+@media (min-width: 840px) {
+  .handleBtns {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+  }
+
+  .handleBtns > button:first-child {
+    margin-right: 20px;
+    margin-bottom: 0;
+  }
+}

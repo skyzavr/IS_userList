@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { currentUserSelector } from '@widgets/userList/model/selectors';
 import { updateUser } from '@widgets/userList/model/userSlice';
+import { clearCurrentUSer } from '@widgets/userList/model/currentUserSlice';
 import { UserName } from '@features/userName';
 import { UserField } from '@features/userDataField';
 import { Button } from '@shared/ui';
@@ -27,6 +28,10 @@ export const UserData = () => {
 
   const onSafeUserData = () => {
     dispatch(updateUser({ id: currentUser.id, data: currentUser }));
+  };
+
+  const onClose = () => {
+    dispatch(clearCurrentUSer());
   };
 
   useEffect(() => {
@@ -67,11 +72,19 @@ export const UserData = () => {
           </div>
         </div>
       </div>
-      <Button
-        title="Сохранить данные"
-        onUpdate={onSafeUserData}
-        isDisabled={isTheSameData}
-      />
+      <div className={css.handleBtns}>
+        <Button
+          title="Сохранить данные"
+          onUpdate={onSafeUserData}
+          isDisabled={isTheSameData}
+        />
+        <Button
+          title="Закрыть"
+          onUpdate={onClose}
+          isDisabled={false}
+          btnType="stroke"
+        />
+      </div>
     </div>
   );
 };
