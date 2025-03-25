@@ -1,38 +1,38 @@
 import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
+import { currentUserSelector } from '@widgets/userList/model/selectors';
+import { updateUser } from '@widgets/userList/model/userSlice';
 import { UserName } from '@features/userName';
 import { UserField } from '@features/userDataField';
 import { Button } from '@shared/ui';
-
-import { dataDesc } from '@shared/model/type';
 import { isDataTheSame } from '@shared/lib/objValueComparator';
+import { dataDesc } from '@shared/model/type';
 
 import css from './userData.module.css';
 
-type userDataProps = {
-  data: dataDesc;
-  onUpdateUser: (data: dataDesc) => void;
-};
+export const UserData = () => {
+  const dispatch = useDispatch();
+  const { currentUser: curUser } = useSelector(currentUserSelector);
 
-export const UserData = ({ data, onUpdateUser }: userDataProps) => {
-  const [currentUser, setCurrentUser] = useState<dataDesc>({ ...data });
-  const [isTheSameData, setIsTheSameData] = useState(false);
-
+  const [currentUser, setCurrentUser] = useState<dataDesc>({ ...curUser });
   const { name, jobTitle, department, company } = currentUser;
+  const [isTheSameData, setIsTheSameData] = useState(false);
 
   const onUpdateUserField = (value: string, type: string) => {
     const changedUser = { ...currentUser, [type]: value };
     setCurrentUser({ ...changedUser });
-    setIsTheSameData(isDataTheSame(data, changedUser));
+    setIsTheSameData(isDataTheSame(curUser, changedUser));
   };
 
   const onSafeUserData = () => {
-    onUpdateUser(currentUser);
+    dispatch(updateUser({ id: currentUser.id, data: currentUser }));
   };
 
   useEffect(() => {
-    setIsTheSameData(isDataTheSame(data, currentUser));
-  }, [data]);
+    setCurrentUser({ ...curUser });
+    setIsTheSameData(isDataTheSame(curUser, currentUser));
+  }, [curUser]);
 
   return (
     <div className={css.wrapper}>
@@ -42,7 +42,7 @@ export const UserData = ({ data, onUpdateUser }: userDataProps) => {
         </div>
         <div className={css.userData}>
           <div>
-            <span>job Title</span>
+            <span>Должность</span>
             <UserField
               value={jobTitle}
               type="jobTitle"
@@ -50,7 +50,7 @@ export const UserData = ({ data, onUpdateUser }: userDataProps) => {
             />
           </div>
           <div>
-            <span>Department</span>
+            <span>Департамент</span>
             <UserField
               value={department}
               type="department"
@@ -58,7 +58,7 @@ export const UserData = ({ data, onUpdateUser }: userDataProps) => {
             />
           </div>
           <div>
-            <span>Company</span>
+            <span>Компания</span>
             <UserField
               value={company}
               type="company"
@@ -68,7 +68,7 @@ export const UserData = ({ data, onUpdateUser }: userDataProps) => {
         </div>
       </div>
       <Button
-        title="Safe data"
+        title="Сохранить данные"
         onUpdate={onSafeUserData}
         isDisabled={isTheSameData}
       />

@@ -1,6 +1,7 @@
 .wrapper {
-  width: 100%;
-  max-width: 500px;
+  width: 500px;
+  border: 1px solid var(--light-blue);
+  padding: 10px;
 }
 
 .userName {
@@ -13,6 +14,7 @@
   flex-direction: column;
   align-items: flex-start;
   margin: 30px 0 40px;
+  padding-left: 30px;
 }
 
 .userData > div:not(div:last-child) {
@@ -22,5 +24,5 @@
 .userData > div > span {
   display: inline-block;
   margin-bottom: 10px;
-  width: 100px;
+  width: 120px;
 }
