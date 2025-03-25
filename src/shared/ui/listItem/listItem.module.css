@@ -1,0 +1,17 @@
+.wrapper {
+  padding: 10px 20px;
+}
+
+.active {
+  background-color: var(--light-blue);
+}
+
+.wrapper,
+.wrapper:hover {
+  transition: 0.5s all ease-in-out;
+}
+
+.wrapper:hover {
+  background-color: #dcedfc;
+  cursor: pointer;
+}
