@@ -1,5 +1,8 @@
 .wrapper {
   padding: 10px 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .active {
@@ -14,4 +17,8 @@
 .wrapper:hover {
   background-color: #dcedfc;
   cursor: pointer;
+}
+
+.wrapper > span {
+  margin-right: 10px;
 }
