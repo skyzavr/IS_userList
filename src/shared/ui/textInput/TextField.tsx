@@ -25,6 +25,10 @@ export const TextField = (props: textFieldProps) => {
     onValueUpdate(value.trim());
   }, [debounce]);
 
+  useEffect(() => {
+    setValue(initValue || '');
+  }, [initValue]);
+
   return (
     <input
       type="text"
