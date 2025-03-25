@@ -10,6 +10,7 @@ import { usersSelector, currentUserSelector } from '../model/selectors';
 import { setCurrentUser } from '../model/currentUserSlice';
 
 import css from './userList.module.css';
+import { UserIcon } from '@shared/ui/icons/userLogo';
 
 type userListProps = { height: string };
 
@@ -42,7 +43,9 @@ export const UserList = ({ height }: userListProps) => {
       title={name}
       onSetItem={() => onSetCurrentUser(id)}
       isActive={id === currentUser.id}
-    />
+    >
+      <UserIcon />
+    </ListItem>
   ));
 
   return (
