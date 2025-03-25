@@ -11,7 +11,9 @@ import { setCurrentUser } from '../model/currentUserSlice';
 
 import css from './userList.module.css';
 
-export const UserList = () => {
+type userListProps = { height: string };
+
+export const UserList = ({ height }: userListProps) => {
   const dispatch = useDispatch();
 
   const { users } = useSelector(usersSelector);
@@ -44,7 +46,7 @@ export const UserList = () => {
   ));
 
   return (
-    <ul className={css.wrapper}>
+    <ul className={css.wrapper} style={{ height }}>
       {users.length > 0 ? userList : 'loading'}
       <div ref={node as RefObject<HTMLDivElement>}>
         <ListItem key="-1" />
